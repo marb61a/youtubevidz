@@ -3,12 +3,40 @@ $(document).ready(function(){
 });
 
 function onDeviceReady(){
-    var channel = '';
+    
+    // Check localStorage for a channel
+    if(localStorage.channel == null || localStorage.channel == ''){
+        // Ask the User for channel
+		$('#popupDialog').popup("open");
+    }else{
+        var channel = localStorage.getItem('channel');
+    }
     
     getPlaylist(channel);
     
     $(document).on('click','#vidlist li', function(){
 		showVideo($(this).attr('videoid'));
+	});
+	
+	$('#channelBtnOK').click(function(){
+		var channel = $('#channelName').val();
+		setChannel(channel);
+		getPlaylist(channel);
+	});
+
+	$('#saveOptions').click(function(){
+		saveOptions();
+	});
+
+	$('#clearChannel').click(function(){
+		clearChannel();
+	});
+	
+	$(document).on('pageinit', '#options', function(e){
+		var channel = localStorage.getItem('channel');
+		var maxResults = localStorage.getItem('maxresults');
+		$('#channelNameOptions').attr('value', channel);
+		$('#maxResultsOptions').attr('value', maxResults);
 	});
 }
 
