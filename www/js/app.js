@@ -86,3 +86,31 @@ function showVideo(id){
 	var output = '<iframe width="100%" height="250" src="https://www.youtube.com/embed/'+id+'" frameborder="0" allowfullscreen></iframe>';
 	$('#showVideo').html(output);
 }
+
+function setChannel(channel){
+    localStorage.setItem('channel', channel);
+	console.log('Channel Set: '+channel);
+}
+
+function setMaxResults(maxResults){
+	localStorage.setItem('maxresults', maxResults);
+	console.log('Max Results Changed: '+maxResults);
+}
+
+function saveOptions(){
+    var channel = $('#channelNameOptions').val();
+    setChannel(channel);
+    var maxResults = $('#maxResultsOptions').val();
+	setMaxResults(maxResults);
+	$('body').pagecontainer('change', '#main',{options});
+	getPlaylist(channel);
+}
+
+function clearChannel(){
+    localStorage.removeItem('channel');
+    $('body').pagecontainer('change', '#main',{options});
+	//Clear List
+	$('#vidlist').html('');
+	//Show Popup
+	$('#popupDialog').popup('open');
+}
