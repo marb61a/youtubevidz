@@ -1,24 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta charset="utf-8" />
@@ -33,7 +13,7 @@
     <body>
         <div data-role="page" id="main">
             <div data-role="header">
-                <h1>Youtubevidz</h1>
+                <h1>Youtubevidz</h1><a href="#options" data-icon="gear" class="ui-btn-right">Options</a>
             </div>
             <div data-role="content">
                 <img id="logo" src="img/logo.png">
@@ -44,6 +24,19 @@
             </div>
             <div data-role="footer">
                 <h4>Youtubevidz &copy; 2015</h4>
+            </div>
+        </div>
+        
+        <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
+            <div data-role="header" data-theme="a" class="ui-corner-top">
+                 <h1>Add Channel</h1>
+            </div>
+            <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+                 <h3 class="ui-title">Please enter a channel name</h3>
+    
+                <input type="text" id="channelName" placeholder="Channel Name" />
+                <a id="channelBtnCancel" href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Cancel</a>
+                <a id="channelBtnOK" href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="b">OK</a>
             </div>
         </div>
         
